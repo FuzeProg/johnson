@@ -12,12 +12,13 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-from matrix import *
+import random
 
-m = 3
-n = 4
+def random_adjacency_matrix(n, m):
 
-if m <= n * (n-1):
-    print(random_adjacency_matrix(n, m))
-else:
-    exit(1)
+    matrix = []
+
+    for i in range(n):
+        matrix.append([0 for i in range(n * (n-1))])
+
+    return matrix
