@@ -7,3 +7,5 @@ Vous écrirez une fonction qui calcule les plus cours chemins entre tout couple
 5) Comparer les deux implémentations de l’algorithme de Dijkstra et générer un tableau de comparaison.
 6) Implémentation de l’algorithme de Johnson. Tests sur des petits graphes, et sur des graphes aléatoires dont les arcs ont des coûts aléatoires uniformes entre −500 et 1000.
 7) Enfin, vous ferez quelques expériences en variant n et m pour vérifier expérimentalement la différence entre l’algorithme naïf et l’algorithme Johnson.
+
+[1[2, 3, 5], 2[4, 3], ]

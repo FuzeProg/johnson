@@ -18,6 +18,6 @@ n = 4 # Nombre de noeuds
 m = 6 # Nombre d'arcs
 
 if m <= n * (n-1):
-    print(random_adjacency_matrix(n, m))
+    print(random_adjacency_matrix(n))
 else:
     exit(1)

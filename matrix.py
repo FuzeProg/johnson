@@ -15,21 +15,16 @@ __status__ = "In product"
 import random
 
 
-def random_adjacency_matrix(n, m):
-    matrix = []
-    cpt = 0
+def random_adjacency_matrix(n):
+    matrix = [[random.randint(0, 1) for i in range(n)] for j in range(n)]
 
-    for i in range(m):
-        node = []
+    # No vertex connects to itself
+    for i in range(n):
+        matrix[i][i] = 0
 
-    while cpt != m:
-        for i in range(m):
-            node = []
-            for j in range(n):
-                if random.randint(0, 1) == 0:
-                    node.append({"node: ":j})
-                    cpt += 1
-                else:
-                    matrix.append(node)
+    # If i is connected to j, j is connected to i
+    for i in range(n):
+        for j in range(n):
+            matrix[j][i] = matrix[i][j]
 
     return matrix
