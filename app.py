@@ -15,15 +15,14 @@ __status__ = "In product"
 from adjacency_list import List
 from bellman import Bellman
 
-graph = List()
-
 def main():
     nodes = 4
-    edges = 3
+    edges = 12
+    graph = List()
+    bell = Bellman(nodes, graph)
     graph.init_list(nodes, edges)
     print(graph.node_dict)
-    graph.parcours()
-
+    graph.display()
 
 if __name__ == '__main__':
     main()

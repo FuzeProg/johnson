@@ -22,5 +22,3 @@ class Bellman:
 
         dist = [float("Inf")] * self.nodes
         dist[src_node] = 0
-
-
