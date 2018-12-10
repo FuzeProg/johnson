@@ -29,13 +29,18 @@ class List:
         self._node_dict[node_item] = []
 
     def add_edge(self, src_node, targ_node):
-        self._node_dict[src_node].append(targ_node)
+        self._node_dict[src_node].append(self.weigth_edge(targ_node))
 
     def edge_exist(self, src_node, targ_node):
         if targ_node in self._node_dict[src_node]:
             return True
         else:
             return False
+
+    def weigth_edge(self, node_item):
+        node = {}
+        node[node_item] = random.randint(-10, 10)
+        return node
 
     def init_list(self, nodes, edges):
         for i in range(1, nodes + 1):
