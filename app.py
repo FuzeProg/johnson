@@ -19,10 +19,13 @@ def main():
     nodes = 4
     edges = 12
     graph = List()
-    bell = Bellman(nodes, graph)
     graph.init_list(nodes, edges)
     print(graph.node_dict)
     graph.display()
+    g = graph.graphL
+    #print(g)
+    bell = Bellman(nodes, g, graph)
+    bell.bellman_ford(1)
 
 if __name__ == '__main__':
     main()

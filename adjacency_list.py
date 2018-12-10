@@ -19,6 +19,7 @@ class List:
 
     def __init__(self):
         self._node_dict = {}
+        self.graphL = []
 
     @property
     def node_dict(self):
@@ -29,7 +30,7 @@ class List:
         self._node_dict[node_item] = {}
 
     def add_edge(self, src_node, targ_node):
-        self._node_dict[src_node].update({targ_node:random.randint(-10, 10)})
+        self._node_dict[src_node].update({targ_node:random.randint(-2, 10)})
 
     def edge_exist(self, src_node, targ_node):
         if targ_node in self._node_dict[src_node]:
@@ -39,10 +40,10 @@ class List:
 
 
     def weigth_edge(self):
-        weigth = random.randint(-10, 10)
+        weigth = random.randint(-2, 10)
 
         while weigth == 0:
-            weigth = random.randint(-10, 10)
+            weigth = random.randint(-2, 10)
 
         return weigth
 
@@ -63,10 +64,12 @@ class List:
             edges = edges - 1
 
     def display(self):
+
         i = 1
         for src_node, targ_node in self._node_dict.items():
             if targ_node in self._node_dict.values():
                 for node, weigth in targ_node.items():
                     if weigth in targ_node.values():
-                        print(i, ". Node", src_node, "linked with node", node, "have a weigth of", weigth, ".")
+                       # print(i, ". Node", src_node, "linked with node", node, "have a weigth of", weigth, ".")
                         i = i + 1
+                        self.graphL.append([src_node, node, weigth])
