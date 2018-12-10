@@ -15,7 +15,7 @@ __status__ = "In product"
 import random
 
 
-class Graph:
+class List:
 
     def __init__(self):
         self._node_dict = {}

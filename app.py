@@ -12,10 +12,10 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-from matrix import Graph as GraphList
+from matrix import List
 
 def test_graph_list(nodes, edges):
-    graph = GraphList()
+    graph = List()
     graph.init_list(nodes, edges)
     print(graph.node_dict)
 
