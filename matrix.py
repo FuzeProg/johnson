@@ -31,6 +31,12 @@ class List:
     def add_edge(self, src_node, targ_node):
         self._node_dict[src_node].append(targ_node)
 
+    def edge_exist(self, src_node, targ_node):
+        if targ_node in self._node_dict[src_node]:
+            return True
+        else:
+            return False
+
     def init_list(self, nodes, edges):
         for i in range(1, nodes + 1):
             self.add_node(i)
@@ -38,5 +44,11 @@ class List:
         while edges > 0:
             src_node = random.randint(1, nodes)
             targ_node = random.randint(1, nodes)
+
+            while self.edge_exist(src_node, targ_node):
+                src_node = random.randint(1, nodes)
+                targ_node = random.randint(1, nodes)
+
             self.add_edge(src_node, targ_node)
+
             edges = edges - 1
