@@ -12,18 +12,15 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-from adjacency_list import List
-from bellman import Bellman
+class Bellman:
 
-graph = List()
+    def __init__(self, nodes, graph):
+        self.nodes = nodes
+        self.graph = graph
 
-def main():
-    nodes = 4
-    edges = 3
-    graph.init_list(nodes, edges)
-    print(graph.node_dict)
-    graph.parcours()
+    def bellman_ford(self, src_node):
+
+        dist = [float("Inf")] * self.nodes
+        dist[src_node] = 0
 
 
-if __name__ == '__main__':
-    main()

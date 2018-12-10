@@ -39,7 +39,14 @@ class List:
 
     def weigth_edge(self, node_item):
         node = {}
-        node[node_item] = random.randint(-10, 10)
+
+        weigth = random.randint(-10, 10)
+
+        while weigth == 0:
+            weigth = random.randint(-10, 10)
+
+        node[node_item] = weigth
+
         return node
 
     def init_list(self, nodes, edges):
@@ -57,3 +64,8 @@ class List:
             self.add_edge(src_node, targ_node)
 
             edges = edges - 1
+
+    def parcours(self):
+        for src_node in self._node_dict.keys():
+            for targ_node in self._node_dict.values():
+                print("Node ", src_node, " linked to node ", targ_node)
