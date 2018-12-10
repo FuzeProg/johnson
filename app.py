@@ -12,12 +12,17 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-from matrix import *
+from matrix import Graph as GraphList
 
-n = 4 # Nombre de noeuds
-m = 6 # Nombre d'arcs
+def test_graph_list(nodes, edges):
+    graph = GraphList()
+    graph.init_list(nodes, edges)
+    print(graph.node_dict)
 
-if m <= n * (n-1):
-    print(random_adjacency_matrix(n))
-else:
-    exit(1)
+def main():
+    nodes = 4
+    edges = 6
+    test_graph_list(nodes, edges)
+
+if __name__ == '__main__':
+    main()
