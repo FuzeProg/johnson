@@ -27,5 +27,6 @@ def main():
     bell = Bellman(nodes, g, graph)
     bell.bellman_ford(1)
 
+
 if __name__ == '__main__':
     main()

@@ -27,8 +27,8 @@ class Bellman:
 
     def bellman_ford(self, src_node):
 
-        dist = [float("Inf")] * self.nodes
-        dist[src_node] = 0
+    def is_state_equal_to(self, graph, node, state=''):
+        return graph.node[node]['state'] == state
 
         for i in range(self.nodes):
             for u, v, w in self.graph:
