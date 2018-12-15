@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # _*_ coding: utf8 _*_
 #
-# Foobar.py: Description of what foobar does.
+# adjacency_list.py: create an adjacency list to represent a graph
 #
 
 __author__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
@@ -17,9 +17,13 @@ import random
 
 class List:
 
-    def __init__(self):
+    def __init__(self, nodes, edges, min, max):
         self._node_dict = {}
         self.graphL = []
+        self.nodes = nodes
+        self.edges = edges
+        self.min_weigh = min
+        self.max_weigh = max
 
     @property
     def node_dict(self):
@@ -30,7 +34,7 @@ class List:
         self._node_dict[node_item] = {}
 
     def add_edge(self, src_node, targ_node):
-        self._node_dict[src_node].update({targ_node:random.randint(-2, 10)})
+        self._node_dict[src_node].update({targ_node:random.randint(self.min_weigh, self.max_weigh)})
 
     def edge_exist(self, src_node, targ_node):
         if targ_node in self._node_dict[src_node]:
@@ -40,30 +44,30 @@ class List:
 
 
     def weigth_edge(self):
-        weigth = random.randint(-2, 10)
+        weigth = random.randint(self.min_weigh, self.max_weigh)
 
         while weigth == 0:
-            weigth = random.randint(-2, 10)
+            weigth = random.randint(self.min_weigh, self.max_weigh)
 
         return weigth
 
-    def init_list(self, nodes, edges):
-        for i in range(1, nodes + 1):
+    def init_list(self):
+        for i in range(1, self.nodes + 1):
             self.add_node(i)
 
-        while edges > 0 :
-            src_node = random.randint(1, nodes)
-            targ_node = random.randint(1, nodes)
+        while self.edges > 0 :
+            src_node = random.randint(1, self.nodes)
+            targ_node = random.randint(1, self.nodes)
 
-            while self.edge_exist(src_node, targ_node):
-                src_node = random.randint(1, nodes)
-                targ_node = random.randint(1, nodes)
+            while self.edge_exist(src_node, targ_node) or src_node == targ_node:
+                src_node = random.randint(1, self.nodes)
+                targ_node = random.randint(1, self.nodes)
 
             self.add_edge(src_node, targ_node)
 
-            edges = edges - 1
+            self.edges = self.edges - 1
 
-    def display(self):
+    def dict_to_list(self):
 
         i = 1
         for src_node, targ_node in self._node_dict.items():
@@ -73,3 +77,4 @@ class List:
                        # print(i, ". Node", src_node, "linked with node", node, "have a weigth of", weigth, ".")
                         i = i + 1
                         self.graphL.append([src_node, node, weigth])
+        #print(self.graphL)
