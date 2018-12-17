@@ -35,9 +35,9 @@ class Bellman:
 
         for u, v, w in self.graph:
             if dist[u-1] != float("Inf") and dist[u-1] + w < dist[v-1]:
-                print('\nGraph has negative cycle\n\n')
+                print('\nGraph has negative cycle\n')
                 return True
             else:
-                print('\nGraph is ok\n\n')
+                print('\nGraph is ok\n')
                 return False
 
